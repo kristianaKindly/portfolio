@@ -1,0 +1,16 @@
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.contact-item__icon {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.contact-item__title {
+  margin-bottom: var(--space-1);
+  font-weight: 700;
+}

@@ -1,0 +1,44 @@
+// Shared shell for both UX Resource cards and Writing/article cards.
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+
+.card__media {
+  width: 100%;
+  aspect-ratio: 486 / 298;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+// Used where a card has no real image yet (e.g. UX Resource cards).
+.card__media--placeholder {
+  background: var(--color-placeholder);
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+
+.card__title {
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+.card--article .card__read-link {
+  margin-top: var(--space-1);
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.2s ease;
+
+  &:hover {
+    color: var(--color-accent);
+  }
+}
