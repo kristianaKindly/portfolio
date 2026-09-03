@@ -1,0 +1,897 @@
+/* ==========================================================================
+   Tokens
+   ========================================================================== */
+
+:root {
+  /* Color */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-bg: #f3f1ec;
+  --color-accent: #f5a800;
+  --color-placeholder: #d9d9d9;
+
+  /* Type */
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  --fs-base: 1rem;    /* 16px */
+  --fs-md: 1.5rem;    /* 24px */
+  --fs-lg: 2.5rem;    /* 40px */
+  --fs-xl: 3rem;      /* 48px */
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-lg: 24px;
+
+  /* Spacing scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+
+  /* Layout */
+  --container-max: 1180px;
+  --container-pad: 1.5rem;
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Inter";
+  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: var(--fs-base);
+  line-height: 1.5;
+  color: var(--color-black);
+  background: var(--color-bg);
+}
+
+h1, h2, h3, p {
+  margin: 0;
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  font: inherit;
+}
+
+/* ==========================================================================
+   Page-load reveal (cover content fades and rises into place on load)
+   ========================================================================== */
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.reveal {
+  /* backwards (not both/forwards): holds the hidden state during the delay,
+     but releases the element back to normal rules once the animation ends —
+     otherwise the animation's lingering transform/opacity would outrank and
+     block a later :hover transition on the same properties (e.g. .card's
+     hover-lift). */
+  animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  animation-delay: 0.25s;
+}
+
+.reveal--delay-1 {
+  animation-delay: 0.37s;
+}
+
+.reveal--delay-2 {
+  animation-delay: 0.49s;
+}
+
+.reveal--delay-3 {
+  animation-delay: 0.61s;
+}
+
+.reveal--delay-4 {
+  animation-delay: 0.73s;
+}
+
+.reveal--delay-5 {
+  animation-delay: 0.85s;
+}
+
+.reveal--delay-6 {
+  animation-delay: 0.97s;
+}
+
+.reveal--delay-7 {
+  animation-delay: 1.09s;
+}
+
+.reveal--delay-8 {
+  animation-delay: 1.21s;
+}
+
+/* Auto-staggers any number of direct .card children by position, so grids
+   don't need per-card delay classes in the HTML. --reveal-start sets when
+   the first card fires; defaults to one step after a lone .reveal element
+   (e.g. a page title), so a title followed directly by a grid never fires
+   both at once. Override --reveal-start inline to slot a grid in later,
+   continuing an existing stagger sequence (e.g. after a section heading). */
+.card-grid--stagger {
+  --reveal-start: 0.37s;
+}
+
+.card-grid--stagger > .card:nth-child(1) { animation-delay: calc(var(--reveal-start) + 0 * 0.12s); }
+.card-grid--stagger > .card:nth-child(2) { animation-delay: calc(var(--reveal-start) + 1 * 0.12s); }
+.card-grid--stagger > .card:nth-child(3) { animation-delay: calc(var(--reveal-start) + 2 * 0.12s); }
+.card-grid--stagger > .card:nth-child(4) { animation-delay: calc(var(--reveal-start) + 3 * 0.12s); }
+.card-grid--stagger > .card:nth-child(5) { animation-delay: calc(var(--reveal-start) + 4 * 0.12s); }
+.card-grid--stagger > .card:nth-child(6) { animation-delay: calc(var(--reveal-start) + 5 * 0.12s); }
+.card-grid--stagger > .card:nth-child(7) { animation-delay: calc(var(--reveal-start) + 6 * 0.12s); }
+.card-grid--stagger > .card:nth-child(8) { animation-delay: calc(var(--reveal-start) + 7 * 0.12s); }
+.card-grid--stagger > .card:nth-child(9) { animation-delay: calc(var(--reveal-start) + 8 * 0.12s); }
+.card-grid--stagger > .card:nth-child(10) { animation-delay: calc(var(--reveal-start) + 9 * 0.12s); }
+.card-grid--stagger > .card:nth-child(11) { animation-delay: calc(var(--reveal-start) + 10 * 0.12s); }
+.card-grid--stagger > .card:nth-child(12) { animation-delay: calc(var(--reveal-start) + 11 * 0.12s); }
+.card-grid--stagger > .card:nth-child(n + 13) { animation-delay: calc(var(--reveal-start) + 11 * 0.12s); }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    animation: none;
+  }
+}
+
+/* ==========================================================================
+   Layout
+   ========================================================================== */
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--container-pad);
+}
+
+.divider {
+  border: none;
+  border-top: 1px solid var(--color-black);
+  max-width: calc(var(--container-max) - 2 * var(--container-pad));
+  margin: var(--space-4) auto;
+}
+
+/* Hero */
+.hero {
+  display: flex;
+  gap: var(--space-6);
+  align-items: center;
+  padding-block: var(--space-4);
+  flex-wrap: wrap;
+}
+
+.hero__media {
+  flex: 0 0 auto;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.hero__photo {
+  width: 343px;
+  height: 343px;
+  object-fit: cover;
+  object-position: center 25%;
+  transition: transform 0.4s ease;
+}
+
+.hero__media:hover .hero__photo {
+  transform: scale(1.08);
+}
+
+.hero__content {
+  flex: 1 1 320px;
+}
+
+.hero__eyebrow {
+  margin-bottom: var(--space-2);
+}
+
+.hero__heading {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: var(--space-2);
+}
+
+.highlight {
+  background: var(--color-accent);
+  padding: 0 0.2em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+/* Contact / value-prop row */
+.contact-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-items: center;
+  gap: var(--space-4);
+  padding-block: var(--space-4);
+}
+
+/* Section shell shared by Case Studies / UX Resources / Writing */
+.section {
+  padding-block: var(--space-4);
+}
+
+#case-studies {
+  display: none;
+}
+
+.section__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+}
+
+.section__title {
+  font-size: var(--fs-lg);
+  font-weight: 400;
+}
+
+.placeholder-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 108px;
+  background: var(--color-placeholder);
+  border-radius: var(--radius-lg);
+}
+
+.placeholder-box__text {
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+@media (max-width: 900px) {
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero__media {
+    width: 100%;
+  }
+
+  .hero__photo {
+    width: 100%;
+    height: 420px;
+  }
+
+  .hero__content {
+    /* Reset the 320px flex-basis — it's a width minimum for the row layout, but would otherwise apply to height once .hero becomes a column. */
+    flex: 1 1 auto;
+  }
+
+  .contact-row,
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .card__media {
+    height: 420px;
+  }
+}
+
+/* ==========================================================================
+   Component: Nav
+   ========================================================================== */
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding-block: var(--space-3);
+  background: var(--color-bg);
+}
+
+.site-header__inner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.site-header__brand {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  white-space: nowrap;
+  transition: color 0.2s ease;
+}
+
+.site-header__brand:hover {
+  color: var(--color-accent);
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.nav__links {
+  display: flex;
+  gap: var(--space-4);
+}
+
+.nav__links a {
+  position: relative;
+  display: inline-block;
+}
+
+.nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.2s ease;
+}
+
+.nav__links a:hover::after {
+  transform: scaleX(1);
+}
+
+.nav__actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.social-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--color-placeholder);
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.social-icon:hover {
+  background: var(--color-accent);
+  transform: scale(1.15);
+}
+
+.nav-toggle {
+  display: none;
+  position: relative;
+  /* content-box (overriding the global border-box reset) so width/height
+     describe just the icon; padding adds click-target space around it
+     without eating into that box, which is what the absolutely-positioned
+     spans below are measured against. */
+  box-sizing: content-box;
+  width: 22px;
+  height: 16px;
+  padding: 0.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  position: absolute;
+  left: 0.5rem;
+  width: 22px;
+  height: 2px;
+  background: var(--color-black);
+  transition: transform 0.25s ease, opacity 0.25s ease, top 0.25s ease;
+}
+
+.nav-toggle span:nth-child(1) {
+  top: 0.5rem;
+}
+
+.nav-toggle span:nth-child(2) {
+  top: calc(0.5rem + 7px);
+}
+
+.nav-toggle span:nth-child(3) {
+  top: calc(0.5rem + 14px);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(1) {
+  top: calc(0.5rem + 7px);
+  transform: rotate(45deg);
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle[aria-expanded="true"] span:nth-child(3) {
+  top: calc(0.5rem + 7px);
+  transform: rotate(-45deg);
+}
+
+@media (max-width: 900px) {
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav {
+    display: none;
+    position: absolute;
+    inset-inline: 0;
+    top: 100%;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-3);
+    padding: var(--space-3) var(--container-pad);
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-placeholder);
+  }
+
+  .nav.is-open {
+    display: flex;
+  }
+
+  .nav__links {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+}
+
+/* ==========================================================================
+   Component: Button
+   ========================================================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid transparent;
+  font-size: var(--fs-base);
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn--dark {
+  background: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.btn--dark:hover {
+  background: var(--color-accent);
+  color: var(--color-black);
+  border-color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Component: Card (shared by UX Resource cards and Writing/article cards)
+   ========================================================================== */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border: 0.5px solid var(--color-placeholder);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+}
+
+.card__media {
+  width: 100%;
+  height: 343px;
+  object-fit: cover;
+  border-radius: 0;
+}
+
+/* Used where a card has no real image yet (e.g. UX Resource cards). */
+.card__media--placeholder {
+  background: var(--color-placeholder);
+}
+
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+}
+
+.card__title {
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+.card--article .card__read-link {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  margin-top: var(--space-1);
+  padding: 0.35rem 0.9rem;
+  border-radius: 999px;
+  background: var(--color-placeholder);
+  font-size: 0.875rem;
+  font-weight: 700;
+  transition: background-color 0.2s ease;
+}
+
+.card--article:hover .card__read-link {
+  background: var(--color-accent);
+}
+
+/* ==========================================================================
+   Component: Contact item
+   ========================================================================== */
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.contact-item__icon {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.contact-item__title {
+  margin-bottom: 0.25rem;
+  font-weight: 700;
+}
+
+.contact-item__text {
+  max-width: 90%;
+}
+
+/* ==========================================================================
+   Component: Footer
+   ========================================================================== */
+
+.site-footer {
+  margin-top: var(--space-8);
+  padding-block: var(--space-8);
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.site-footer__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-4);
+}
+
+.site-footer__intro h2 {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-lg);
+  font-weight: 400;
+}
+
+.site-footer__intro p {
+  max-width: 24rem;
+}
+
+.site-footer__links {
+  display: flex;
+  gap: var(--space-6);
+}
+
+.site-footer__links li + li {
+  margin-top: var(--space-1);
+}
+
+.site-footer__links a {
+  opacity: 0.9;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.site-footer__links a:hover {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+/* ==========================================================================
+   Component: Page title (centered heading used at the top of inner pages)
+   ========================================================================== */
+
+.page-title {
+  padding-block: var(--space-3);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  text-align: center;
+}
+
+/* ==========================================================================
+   Component: Badge (standalone accent callout, e.g. a headline tag)
+   ========================================================================== */
+
+.badge {
+  display: inline-block;
+  padding: var(--space-1) var(--space-2);
+  background: var(--color-accent);
+  border-radius: var(--radius-sm);
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   Prose (spacing between stacked paragraphs of body copy)
+   ========================================================================== */
+
+.prose p + p {
+  margin-top: var(--space-3);
+}
+
+/* ==========================================================================
+   Component: Experience list
+   ========================================================================== */
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.experience-item {
+  display: flex;
+  gap: var(--space-6);
+  align-items: flex-start;
+}
+
+.experience-item__header {
+  display: flex;
+  align-items: center;
+  flex: 0 0 520px;
+  gap: var(--space-3);
+  white-space: nowrap;
+}
+
+.experience-item__thumb {
+  width: 89px;
+  height: 89px;
+  flex-shrink: 0;
+  background: var(--color-placeholder);
+  border-radius: var(--radius-sm);
+}
+
+.experience-item__role {
+  margin-bottom: 0.25rem;
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+.experience-item__text {
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .experience-item {
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+
+  .experience-item__header {
+    flex-direction: column;
+    align-items: flex-start;
+    flex-basis: auto;
+    white-space: normal;
+  }
+}
+
+.section--centered {
+  text-align: center;
+}
+
+/* ==========================================================================
+   Component: Article (individual Writing entry)
+   ========================================================================== */
+
+.article-cover {
+  width: 100%;
+  max-height: 500px;
+  /* Matches .hero's own top padding so the cover sits the same distance
+     below the nav as the home page photo does. */
+  margin-top: var(--space-4);
+  object-fit: cover;
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-4);
+}
+
+.article-title {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+}
+
+.article-deck {
+  margin-bottom: var(--space-4);
+  font-size: var(--fs-md);
+}
+
+.article-body h2 {
+  margin-top: var(--space-6);
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-lg);
+  font-weight: 700;
+}
+
+.article-body h3 {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-1);
+  font-size: var(--fs-md);
+  font-weight: 700;
+}
+
+.article-figure {
+  /* Browsers default <figure> to margin: 1em 40px — reset the sides so the
+     image spans the full article column instead of inset by 40px each way. */
+  margin-block: var(--space-4);
+  margin-inline: 0;
+}
+
+.article-figure__image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: var(--color-placeholder);
+  border-radius: var(--radius-lg);
+}
+
+.article-figure figcaption {
+  margin-top: var(--space-1);
+  font-size: 0.875rem;
+  font-style: italic;
+  opacity: 0.7;
+}
+
+/* The global reset strips list styling for nav use (ul{list-style:none}) —
+   restore real bullets/numbers/indentation for actual body content. */
+.article-body a {
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.article-body a:hover {
+  color: var(--color-accent);
+}
+
+.article-body ul,
+.article-body ol {
+  margin: var(--space-3) 0;
+  padding-left: 1.5rem;
+}
+
+.article-body ul {
+  list-style: disc;
+}
+
+.article-body ol {
+  list-style: decimal;
+}
+
+.article-body ul ul,
+.article-body ol ul {
+  list-style: circle;
+  margin: var(--space-1) 0 0;
+}
+
+.article-body li + li {
+  margin-top: var(--space-1);
+}
+
+.article-body blockquote {
+  margin: var(--space-4) 0;
+  padding-left: var(--space-3);
+  border-left: 3px solid var(--color-black);
+  font-size: var(--fs-md);
+  font-style: italic;
+}
+
+.article-body blockquote cite {
+  display: block;
+  margin-top: var(--space-1);
+  font-size: var(--fs-base);
+  font-style: normal;
+  font-weight: 700;
+}
+
+.article-table {
+  width: 100%;
+  margin: var(--space-4) 0;
+  border-collapse: collapse;
+  font-size: var(--fs-base);
+}
+
+.article-table th,
+.article-table td {
+  padding: var(--space-2);
+  border: 1px solid var(--color-placeholder);
+  text-align: left;
+  vertical-align: top;
+}
+
+.article-table th {
+  background: var(--color-placeholder);
+  font-weight: 700;
+}
+
+.article-citations {
+  font-size: 0.9rem;
+}
+
+.article-body sup {
+  font-style: normal;
+}
+
+.article-body sup a {
+  text-decoration: none;
+}

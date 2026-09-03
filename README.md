@@ -1,22 +1,22 @@
 # Alida Horsley — Portfolio
 
-Jekyll site, built for GitHub Pages.
+Plain HTML/CSS/JS. No build step, no dependencies, no server required.
 
 ## Local development
 
-Requires Ruby + Bundler.
+Just open `index.html` directly in a browser. To preview with a local server instead (optional):
 
 ```
-bundle install
-bundle exec jekyll serve
+npx serve .
 ```
-
-Then open http://localhost:4000.
 
 ## Structure
 
-- `_layouts/default.html` — shared page shell
-- `_includes/header.html`, `_includes/footer.html` — nav and footer, reused on every page
-- `_sass/` — design tokens (`_tokens.scss`), base styles, layout primitives, and one file per reusable component (`_sass/components/`)
-- `assets/css/main.scss` — imports the partials above; Jekyll compiles it to `assets/css/main.css`
-- `assets/images/`, `assets/fonts/` — self-hosted assets (Inter font, photos, icons)
+- `index.html` — home page (each additional page will be its own `.html` file at the root, e.g. `about.html`)
+- `css/styles.css` — all styles: design tokens (CSS custom properties), base styles, layout, and one section per reusable component (nav, button, card, contact item, footer)
+- `js/nav.js` — mobile nav toggle
+- `assets/images/`, `assets/fonts/` — images and the self-hosted Inter font
+
+## Deploying
+
+Push this folder as-is to a GitHub repo, then in the repo go to **Settings → Pages → Build and deployment → Source** and choose **"Deploy from a branch"** (main, `/` root). No Actions workflow needed — GitHub serves the static files directly.
