@@ -1,0 +1,2072 @@
+/* ==========================================================================
+   v2 components — loaded after styles.css
+   Design notes (PORTFOLIO-PLAN.md): limited palette with confident accent
+   use, narrow reading column against wide images, icon buttons with a small
+   hover motion, case studies that lead with outcomes.
+   ========================================================================== */
+
+:root {
+  --measure: 42rem;
+  --color-muted: #5b5852;
+  --color-line: #d8d4cb;
+  --color-good: #2e9e5b;
+}
+
+/* --------------------------------------------------------------------------
+   Buttons with icons and hover motion
+   -------------------------------------------------------------------------- */
+
+.btn {
+  gap: 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn__icon {
+  width: 1em;
+  height: 1em;
+  flex-shrink: 0;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn:hover .btn__icon--right,
+.text-link:hover .btn__icon--right {
+  transform: translateX(4px);
+}
+
+.btn:hover .btn__icon--down {
+  transform: translateY(3px);
+}
+
+.btn--outline {
+  background: transparent;
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.btn--outline:hover {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.btn--sm {
+  padding: 0.45rem 0.9rem;
+  font-size: 0.875rem;
+}
+
+.btn-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  transition: color 0.2s ease;
+}
+
+.text-link:hover {
+  color: var(--color-black);
+  background: var(--color-accent-soft);
+}
+
+/* --------------------------------------------------------------------------
+   Shared bits
+   -------------------------------------------------------------------------- */
+
+.eyebrow {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.section__intro {
+  max-width: var(--measure);
+  margin-top: calc(-1 * var(--space-2));
+  margin-bottom: var(--space-4);
+  color: var(--color-muted);
+}
+
+.measure {
+  max-width: var(--measure);
+}
+
+.tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.tag {
+  padding: 0.15rem 0.6rem;
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  font-size: 0.8rem;
+  color: var(--color-muted);
+}
+
+.result-chip {
+  padding: 0.2rem 0.65rem;
+  border-radius: 999px;
+  background: var(--color-accent-soft);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+.media-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  aspect-ratio: 16 / 7;
+  padding: var(--space-2);
+  background: var(--color-placeholder);
+  border-radius: var(--radius-lg);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+  text-align: center;
+}
+
+.media-placeholder--square {
+  aspect-ratio: 4 / 3;
+}
+
+/* --------------------------------------------------------------------------
+   Home: hero, capabilities, logos
+   -------------------------------------------------------------------------- */
+
+.hero__availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: var(--space-2);
+  font-size: 0.95rem;
+}
+
+.hero__availability::before {
+  content: "";
+  width: 0.55rem;
+  height: 0.55rem;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background: var(--color-good);
+  box-shadow: 0 0 0 4px rgba(46, 158, 91, 0.18);
+}
+
+.hero__actions {
+  margin-top: var(--space-3);
+}
+
+.capabilities {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4) var(--space-6);
+  padding-block: var(--space-4);
+}
+
+.capability {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+}
+
+.capability__icon {
+  width: 27px;
+  height: 27px;
+  flex-shrink: 0;
+}
+
+.capability__title {
+  font-weight: 700;
+}
+
+.capability__title span {
+  background: var(--color-accent-soft);
+  padding: 0 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
+.capability__text {
+  margin-top: 0.25rem;
+  color: var(--color-muted);
+}
+
+.logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3) var(--space-6);
+  padding-block: var(--space-2);
+}
+
+.logo-row__label {
+  font-size: 0.875rem;
+  color: var(--color-muted);
+}
+
+.logo-row__item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-weight: 700;
+}
+
+.logo-row__item img {
+  width: auto;
+  height: 36px;
+}
+
+/* --------------------------------------------------------------------------
+   Case study cards
+   -------------------------------------------------------------------------- */
+
+.case-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.case-card {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+  background: var(--color-white);
+  border: 0.5px solid var(--color-placeholder);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.case-card:hover {
+  transform: translateY(-6px);
+}
+
+.case-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-4);
+}
+
+.case-card__title {
+  font-size: var(--fs-md);
+  line-height: 1.3;
+}
+
+.case-card__results {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+
+.case-card__media {
+  display: flex;
+  min-height: 300px;
+}
+
+.case-card__media img,
+.case-card__media .media-placeholder {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto;
+  border-radius: 0;
+  object-fit: cover;
+}
+
+.case-card .text-link {
+  margin-top: auto;
+}
+
+/* --------------------------------------------------------------------------
+   How I work, side projects, testimonials
+   -------------------------------------------------------------------------- */
+
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-4);
+  counter-reset: how;
+}
+
+.how-item {
+  counter-increment: how;
+  padding-top: var(--space-2);
+  border-top: 3px solid var(--color-black);
+}
+
+.how-item::before {
+  content: "0" counter(how);
+  display: block;
+  margin-bottom: var(--space-1);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+.how-item h3 {
+  margin-bottom: var(--space-1);
+  font-size: 1.125rem;
+  line-height: 1.3;
+}
+
+.mini-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.mini-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  padding: var(--space-3);
+  border: 1px dashed var(--color-placeholder);
+  border-radius: var(--radius-lg);
+}
+
+.mini-card h3 {
+  font-size: 1.125rem;
+}
+
+.mini-card .text-link {
+  margin-top: auto;
+  padding-top: var(--space-1);
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.testimonial {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  margin: 0;
+  padding: var(--space-4);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+}
+
+.testimonial__pull {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.testimonial__who {
+  margin-top: auto;
+  font-size: 0.9rem;
+}
+
+.testimonial__who strong {
+  display: block;
+}
+
+/* --------------------------------------------------------------------------
+   Case study page
+   -------------------------------------------------------------------------- */
+
+.cs-hero {
+  padding-block: var(--space-6) var(--space-4);
+}
+
+.cs-hero__title {
+  max-width: 52rem;
+  margin-block: var(--space-2);
+  font-size: var(--fs-xl);
+  line-height: 1.15;
+}
+
+.cs-hero__summary {
+  max-width: var(--measure);
+  font-size: 1.125rem;
+}
+
+.cs-hero .btn-row {
+  margin-top: var(--space-3);
+}
+
+.cs-fields {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-3);
+  margin: var(--space-4) 0 0;
+  padding-block: var(--space-3);
+  border-block: 1px solid var(--color-line);
+}
+
+.cs-fields dt {
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+.cs-fields dd {
+  margin: 0.25rem 0 0;
+}
+
+.full-bleed {
+  margin-block: var(--space-4);
+}
+
+.full-bleed img {
+  width: 100%;
+  border-radius: var(--radius-lg);
+}
+
+.psr {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.psr__card {
+  padding: var(--space-3);
+  border-radius: var(--radius-lg);
+  background: var(--color-white);
+}
+
+.psr__card--results {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.psr__card h2 {
+  margin-bottom: var(--space-2);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.psr__card--results h2 {
+  color: var(--color-accent);
+}
+
+.psr__card li + li {
+  margin-top: var(--space-1);
+  padding-top: var(--space-1);
+  border-top: 1px solid rgba(127, 127, 127, 0.25);
+}
+
+.cs-layout {
+  display: grid;
+  grid-template-columns: 190px minmax(0, 1fr);
+  gap: var(--space-6);
+  padding-block: var(--space-6) var(--space-4);
+}
+
+.cs-nav {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+}
+
+.cs-nav .eyebrow {
+  display: block;
+  margin-bottom: var(--space-2);
+}
+
+.cs-nav ol {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  border-left: 2px solid var(--color-line);
+}
+
+.cs-nav a {
+  display: block;
+  margin-left: -2px;
+  padding: 0.25rem 0 0.25rem var(--space-2);
+  border-left: 2px solid transparent;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+  transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.cs-nav a:hover,
+.cs-nav a.is-active {
+  border-left-color: var(--color-accent);
+  color: var(--color-black);
+}
+
+.cs-nav a.is-active {
+  font-weight: 700;
+}
+
+.cs-section {
+  scroll-margin-top: 6rem;
+  margin-bottom: var(--space-8);
+}
+
+.cs-section > .eyebrow {
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.cs-section h2 {
+  max-width: var(--measure);
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-lg);
+  line-height: 1.2;
+}
+
+.cs-section > p,
+.cs-section > ul {
+  max-width: var(--measure);
+}
+
+.cs-section p + p {
+  margin-top: var(--space-2);
+}
+
+ul.bullets {
+  margin-top: var(--space-2);
+  padding-left: 1.25rem;
+  list-style: disc;
+}
+
+ul.bullets li + li {
+  margin-top: var(--space-1);
+}
+
+.workstream {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: center;
+  padding-block: var(--space-4);
+  border-top: 1px solid var(--color-line);
+}
+
+.workstream h3 {
+  margin-block: var(--space-1);
+  font-size: var(--fs-md);
+  line-height: 1.3;
+}
+
+.stat {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: var(--space-1);
+  margin-top: var(--space-2);
+}
+
+.stat__value {
+  font-size: var(--fs-lg);
+  font-weight: 700;
+  line-height: 1;
+}
+
+.stat__label {
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
+.stat-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+  margin-top: var(--space-3);
+}
+
+.stat-row .stat {
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 0;
+  padding: var(--space-3);
+  background: var(--color-white);
+  border-radius: var(--radius-lg);
+}
+
+.cs-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: var(--space-4);
+  background: var(--color-accent);
+  border-radius: var(--radius-lg);
+}
+
+.cs-cta h2 {
+  font-size: var(--fs-md);
+}
+
+.cs-next {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2);
+  padding-block: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Article (v2): narrow column, wide cover, caption
+   -------------------------------------------------------------------------- */
+
+.article-meta {
+  display: block;
+  margin-top: var(--space-4);
+}
+
+.article-narrow {
+  max-width: var(--measure);
+  margin-inline: auto;
+}
+
+.article-caption {
+  margin-top: calc(-1 * var(--space-3));
+  margin-bottom: var(--space-4);
+  font-size: 0.875rem;
+  font-style: italic;
+  color: var(--color-muted);
+  text-align: center;
+}
+
+/* --------------------------------------------------------------------------
+   About (v2)
+   -------------------------------------------------------------------------- */
+
+.eras {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  max-width: var(--measure);
+}
+
+.era__label {
+  display: block;
+  margin-bottom: var(--space-1);
+}
+
+.era p + p {
+  margin-top: var(--space-1);
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-3);
+}
+
+.plain-list li + li {
+  margin-top: var(--space-2);
+}
+
+.plain-list span {
+  display: block;
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Presentations
+   -------------------------------------------------------------------------- */
+
+.talk-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.talk {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.talk h2 {
+  margin-block: 0.25rem var(--space-1);
+  font-size: var(--fs-md);
+  line-height: 1.3;
+}
+
+.talk .tag-list,
+.talk .btn-row {
+  margin-top: var(--space-2);
+}
+
+/* --------------------------------------------------------------------------
+   Resume
+   -------------------------------------------------------------------------- */
+
+.resume-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.resume {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 1fr);
+  gap: var(--space-6);
+  padding-block: var(--space-4);
+}
+
+.resume h2 {
+  margin-bottom: var(--space-2);
+  font-size: 0.85rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.resume section + section {
+  margin-top: var(--space-6);
+}
+
+.resume__side li + li {
+  margin-top: 0.35rem;
+}
+
+.resume-job + .resume-job {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+}
+
+.resume-job__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-1);
+  margin-bottom: var(--space-1);
+}
+
+.resume-job__role {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.resume-job__dates {
+  color: var(--color-muted);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .capabilities,
+  .how-grid,
+  .mini-grid,
+  .testimonial-grid,
+  .psr,
+  .stat-row,
+  .gallery,
+  .case-card,
+  .workstream,
+  .talk,
+  .resume {
+    grid-template-columns: 1fr;
+  }
+
+  .case-card__media {
+    order: -1;
+    min-height: 220px;
+  }
+
+  .cs-fields {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .cs-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+
+  .cs-nav {
+    position: static;
+  }
+}
+
+.site-footer__intro .footer-note {
+  margin-top: var(--space-2);
+  max-width: 24rem;
+  opacity: 0.85;
+}
+
+/* v1 hid the empty Case Studies section; v2 fills it. */
+#case-studies {
+  display: block;
+}
+
+.testimonial blockquote {
+  margin: 0;
+}
+
+.cs-nav ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* ==========================================================================
+   Round 2: list cards, tall hero, linked logos, sticky resume
+   ========================================================================== */
+
+/* Hero photo matches the height of the cover text on wide screens. */
+@media (min-width: 901px) {
+  .hero--tall {
+    align-items: stretch;
+  }
+
+  .hero--tall .hero__media {
+    display: flex;
+  }
+
+  .hero--tall .hero__photo {
+    height: 100%;
+    min-height: 343px;
+  }
+
+  .hero--tall .hero__content {
+    align-self: center;
+  }
+}
+
+/* Linked company logos */
+a.logo-row__item {
+  transition: color 0.2s ease;
+}
+
+a.logo-row__item:hover {
+  color: var(--color-black);
+  background: var(--color-accent-soft);
+}
+
+a.logo-row__item .btn__icon {
+  width: 0.85em;
+  height: 0.85em;
+  opacity: 0.6;
+}
+
+a.logo-row__item:hover .btn__icon {
+  transform: translate(2px, -2px);
+  opacity: 1;
+}
+
+/* List cards: the Presentations layout used for every card list. */
+.list {
+  display: flex;
+  flex-direction: column;
+}
+
+.list-card {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+  padding-block: var(--space-4);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.list-card:first-child {
+  padding-top: 0;
+}
+
+.list-card__media {
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+}
+
+.list-card__media a {
+  display: block;
+}
+
+.list-card__media img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.list-card:hover .list-card__media img {
+  transform: scale(1.04);
+}
+
+.list-card__logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 4 / 3;
+  background: var(--color-white);
+}
+
+.list-card__logo img {
+  width: 45%;
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+.list-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.list-card__title {
+  font-size: var(--fs-md);
+  line-height: 1.3;
+}
+
+.list-card__title a {
+  transition: color 0.2s ease;
+}
+
+.list-card__title a:hover {
+  color: var(--color-black);
+  background: var(--color-accent-soft);
+}
+
+.list-card .case-card__results,
+.list-card .tag-list {
+  margin-top: 0.25rem;
+}
+
+.list-card .btn-row {
+  margin-top: var(--space-2);
+}
+
+/* Articles inside the case-study layout */
+.cs-layout .article-body {
+  max-width: var(--measure);
+}
+
+.cs-layout .article-body h2 {
+  scroll-margin-top: 6rem;
+}
+
+.cs-layout .article-body h2:first-child {
+  margin-top: 0;
+}
+
+.cs-layout .cs-next {
+  justify-content: flex-start;
+}
+
+/* Resume: sticky left column */
+.resume__side {
+  position: sticky;
+  top: 6rem;
+  align-self: start;
+}
+
+@media (max-width: 900px) {
+  .list-card {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+
+  .resume__side {
+    position: static;
+  }
+}
+
+/* ==========================================================================
+   Round 3: cover line, bands, centred logos, dividers, filters, footer
+   ========================================================================== */
+
+/* Cover eyebrow is now the "10 years partnering" line */
+.hero--tall .hero__eyebrow {
+  color: var(--color-muted);
+}
+
+/* Lighter band behind Case Studies, to separate it from the cover */
+.band--light {
+  background: #fbfaf7;
+  border-block: 1px solid var(--color-line);
+}
+
+.band--light .list-card__logo {
+  border: 1px solid var(--color-line);
+}
+
+.band + .section {
+  padding-top: var(--space-6);
+}
+
+/* Worked with: label on top, companies centred */
+.logo-row {
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-block: var(--space-2) var(--space-4);
+}
+
+.logo-row__items {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3) var(--space-6);
+}
+
+/* Very light breakers (About sections, Key Experience entries) */
+.soft-divider {
+  max-width: calc(var(--container-max) - 2 * var(--container-pad));
+  margin: 0 auto;
+  border: 0;
+  border-top: 1px solid var(--color-line);
+}
+
+@media (max-width: 1228px) {
+  .soft-divider {
+    margin-inline: var(--container-pad);
+  }
+}
+
+.experience-list {
+  gap: 0;
+}
+
+.experience-item {
+  padding-block: var(--space-4);
+}
+
+.experience-item:first-child {
+  padding-top: 0;
+}
+
+.experience-item + .experience-item {
+  border-top: 1px solid var(--color-line);
+}
+
+/* Content filters */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-1);
+  margin-bottom: var(--space-4);
+}
+
+.filter-btn {
+  padding: 0.45rem 1rem;
+  font: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-black);
+  background: transparent;
+  border: 1px solid var(--color-black);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.filter-btn:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.filter-btn[aria-pressed="true"] {
+  background: var(--color-black);
+  color: var(--color-white);
+}
+
+.section__more {
+  display: flex;
+  justify-content: center;
+  margin-top: var(--space-4);
+}
+
+/* --------------------------------------------------------------------------
+   Footer v2
+   -------------------------------------------------------------------------- */
+
+.footer-v2 {
+  padding-block: var(--space-8) var(--space-3);
+}
+
+.footer-v2__top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding-bottom: var(--space-6);
+}
+
+.footer-v2__title {
+  margin-bottom: var(--space-2);
+  font-size: var(--fs-xl);
+  font-weight: 400;
+  line-height: 1.1;
+}
+
+.footer-v2__text {
+  max-width: 15rem;
+  opacity: 0.85;
+}
+
+.footer-v2__note {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: var(--space-3);
+  font-size: 0.9rem;
+}
+
+.footer-v2__dot {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  background: var(--color-good);
+  box-shadow: 0 0 0 4px rgba(46, 158, 91, 0.25);
+}
+
+.footer-v2__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--space-1);
+  min-width: 16rem;
+}
+
+.btn--ghost {
+  justify-content: space-between;
+  background: transparent;
+  color: var(--color-white);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.btn--ghost:hover {
+  background: var(--color-white);
+  color: var(--color-black);
+  border-color: var(--color-white);
+}
+
+.footer-v2__actions .btn--accent {
+  justify-content: space-between;
+}
+
+.footer-v2__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-2) var(--space-4);
+  padding-top: var(--space-3);
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  font-size: 0.9rem;
+}
+
+.footer-v2__brand {
+  font-weight: 700;
+}
+
+.footer-v2__links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-1) var(--space-3);
+}
+
+.footer-v2__links a,
+.footer-v2__brand {
+  opacity: 0.85;
+  transition: color 0.2s ease, opacity 0.2s ease;
+}
+
+.footer-v2__links a:hover,
+.footer-v2__brand:hover {
+  opacity: 1;
+  color: var(--color-accent);
+}
+
+.footer-v2__copy {
+  opacity: 0.6;
+}
+
+@media (max-width: 700px) {
+  .footer-v2__actions {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .footer-v2__bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+/* ==========================================================================
+   Article reading styles (v2 writing pages)
+   Styling only: larger, airier body text; clear heading levels; list items
+   with their bold lead-in on its own line; quotes as calm callouts.
+   ========================================================================== */
+
+.cs-layout .article-body {
+  max-width: 40rem;
+  font-size: 1.0625rem;
+  line-height: 1.75;
+  color: #22201c;
+}
+
+.cs-layout .article-body p + p {
+  margin-top: 1.25em;
+}
+
+.cs-layout .article-body > p,
+.cs-layout .article-body > ul,
+.cs-layout .article-body > ol {
+  margin-top: 1.25em;
+}
+
+.cs-layout .article-body > :first-child {
+  margin-top: 0;
+}
+
+/* Headings: H2 starts a new part (rule + accent tick), H3 a sub-part. */
+.cs-layout .article-body h2 {
+  position: relative;
+  margin: 4rem 0 1.25rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--color-line);
+  font-size: 1.875rem;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+}
+
+.cs-layout .article-body h2::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: 0;
+  width: 3rem;
+  height: 3px;
+  background: var(--color-accent);
+}
+
+.cs-layout .article-body h2:first-child {
+  margin-top: 0;
+}
+
+.cs-layout .article-body h3 {
+  margin: 2.75rem 0 0.75rem;
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.cs-layout .article-body h2 + h3 {
+  margin-top: 1.5rem;
+}
+
+/* Lists */
+.cs-layout .article-body ul,
+.cs-layout .article-body ol {
+  margin-block: 1.25em;
+  padding-left: 1.5rem;
+}
+
+.cs-layout .article-body li + li {
+  margin-top: 0.75rem;
+}
+
+.cs-layout .article-body li::marker {
+  color: var(--color-muted);
+  font-weight: 700;
+}
+
+/* Long numbered points: more space, and the bold lead-in reads as a label. */
+.cs-layout .article-body > ol:not(.article-citations) > li + li {
+  margin-top: 1.5rem;
+}
+
+.cs-layout .article-body li > strong:first-child {
+  display: block;
+  margin-bottom: 0.25rem;
+}
+
+.cs-layout .article-body li li > strong:first-child,
+.cs-layout .article-body ul li > strong:first-child {
+  display: inline;
+  margin: 0;
+}
+
+.cs-layout .article-body li ul,
+.cs-layout .article-body li ol {
+  margin-block: 0.75rem 0;
+}
+
+/* Quotes: a calm callout, not a giant italic block. */
+.cs-layout .article-body blockquote {
+  margin: 2rem 0;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-white);
+  border-left: 4px solid var(--color-accent);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  font-size: 1.1875rem;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.5;
+}
+
+.cs-layout .article-body li blockquote {
+  margin-block: 1rem;
+  font-size: 1.0625rem;
+  font-weight: 400;
+  font-style: italic;
+}
+
+.cs-layout .article-body blockquote p + p {
+  margin-top: 0.5em;
+}
+
+.cs-layout .article-body blockquote cite {
+  margin-top: 0.75rem;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 700;
+  color: var(--color-muted);
+}
+
+/* Links and citation markers */
+.cs-layout .article-body a {
+  text-decoration-color: var(--color-accent);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+
+.cs-layout .article-body sup {
+  margin-left: 0.1em;
+  font-size: 0.7em;
+  line-height: 0;
+}
+
+.cs-layout .article-body sup a {
+  color: var(--color-black);
+  background: var(--color-accent-soft);
+  font-weight: 700;
+}
+
+/* Table: header band, horizontal rules only, comfortable cells */
+.cs-layout .article-table {
+  margin: 2rem 0;
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  background: var(--color-white);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.cs-layout .article-table th,
+.cs-layout .article-table td {
+  padding: 0.85rem 1rem;
+  border: 0;
+  border-bottom: 1px solid var(--color-line);
+}
+
+.cs-layout .article-table th {
+  background: var(--color-black);
+  color: var(--color-white);
+  font-size: 0.875rem;
+}
+
+.cs-layout .article-table tr:last-child td {
+  border-bottom: 0;
+}
+
+.cs-layout .article-table td + td,
+.cs-layout .article-table th + th {
+  border-left: 1px solid var(--color-line);
+}
+
+/* Figures */
+.cs-layout .article-figure {
+  margin-block: 2.5rem;
+}
+
+.cs-layout .article-figure figcaption {
+  margin-top: 0.6rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  text-align: center;
+}
+
+/* Citations: smaller and quieter, long URLs wrap */
+.cs-layout .article-citations {
+  font-size: 0.875rem;
+  line-height: 1.55;
+  color: var(--color-muted);
+  overflow-wrap: anywhere;
+}
+
+.cs-layout .article-citations li + li {
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 700px) {
+  .cs-layout .article-body {
+    font-size: 1rem;
+  }
+
+  .cs-layout .article-body h2 {
+    margin-top: 3rem;
+    font-size: 1.5rem;
+  }
+
+  .cs-layout .article-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+/* ==========================================================================
+   Round 4: spacing and dividers
+   ========================================================================== */
+
+/* More breathing room above and below every section */
+.section,
+.band + .section {
+  padding-block: var(--space-8);
+}
+
+/* Cover dividers: same light grey as the case study lines, tighter spacing */
+.divider {
+  margin: var(--space-2) auto;
+  border-top-color: var(--color-line);
+}
+
+.capabilities {
+  padding-block: var(--space-3);
+}
+
+.logo-row {
+  padding-block: var(--space-2) var(--space-6);
+}
+
+/* No rule under the last card in a list */
+.list-card:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+/* About: divider sits evenly between the cover and Key Experience */
+.hero:not(.hero--tall) {
+  padding-bottom: var(--space-8);
+}
+
+/* Smaller award logos */
+.award-item__thumb {
+  width: 64px;
+  height: 44px;
+}
+
+.award-item {
+  gap: var(--space-2);
+}
+
+.experience-item__dates {
+  margin-top: 0.25rem;
+  font-size: 0.9rem;
+  color: var(--color-muted);
+}
+
+/* Years now stand alone, so they take the bold style the duration had. */
+.experience-item__dates {
+  margin-top: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-black);
+}
+
+/* ==========================================================================
+   Round 5: one yellow system (dark = --color-accent, light = --color-accent-soft)
+   Hovered links and citation markers get the light highlight behind black text.
+   ========================================================================== */
+
+.text-link,
+a.logo-row__item,
+.list-card__title a,
+.cs-layout .article-body sup a {
+  border-radius: 3px;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.text-link:hover,
+a.logo-row__item:hover,
+.list-card__title a:hover {
+  box-shadow: 0 0 0 3px var(--color-accent-soft);
+}
+
+.cs-layout .article-body sup a {
+  padding: 0 0.15em;
+}
+
+/* "See all content" sits further below the list */
+.section__more {
+  margin-top: var(--space-8);
+}
+
+/* ==========================================================================
+   Round 6: copy-email feedback, hero rhythm
+   ========================================================================== */
+
+/* Toast that confirms the email was copied (bottom centre, above content) */
+.copy-toast {
+  position: fixed;
+  left: 50%;
+  bottom: calc(var(--space-3) + env(safe-area-inset-bottom, 0px));
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  max-width: calc(100vw - 2 * var(--container-pad));
+  padding: 0.75rem 1.1rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  border-radius: 999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+  font-weight: 700;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 16px) scale(0.96);
+  transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.copy-toast.is-visible {
+  opacity: 1;
+  transform: translate(-50%, 0) scale(1);
+}
+
+.copy-toast__icon {
+  width: 1.15rem;
+  height: 1.15rem;
+  flex-shrink: 0;
+  padding: 0.15rem;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-black);
+}
+
+/* The clicked email link: buttons turn light yellow with a check,
+   the icon-only header link swaps its envelope for a check. */
+a[href^="mailto:"].is-copied.btn {
+  background: var(--color-accent-soft);
+  color: var(--color-black);
+  border-color: var(--color-accent-soft);
+}
+
+a[href^="mailto:"].is-copied .btn__icon {
+  opacity: 0;
+}
+
+a[href^="mailto:"].btn {
+  position: relative;
+}
+
+a[href^="mailto:"].is-copied.btn::after,
+a[href^="mailto:"].is-copied.social-icon::after {
+  content: "";
+  position: absolute;
+  width: 1em;
+  height: 1em;
+  background: currentColor;
+  -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+  mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m5 12.5 4.5 4.5L19 7.5'/%3E%3C/svg%3E") center / contain no-repeat;
+}
+
+a[href^="mailto:"].is-copied.btn::after {
+  right: 1.5rem;
+}
+
+a[href^="mailto:"].social-icon {
+  position: relative;
+}
+
+a[href^="mailto:"].is-copied.social-icon {
+  background: var(--color-accent-soft);
+}
+
+a[href^="mailto:"].is-copied.social-icon img {
+  opacity: 0;
+}
+
+a[href^="mailto:"].is-copied.social-icon::after {
+  inset: 0;
+  margin: auto;
+  color: var(--color-black);
+}
+
+/* Footer text links and other plain email links */
+a[href^="mailto:"].is-copied:not(.btn):not(.social-icon) {
+  background: var(--color-accent-soft);
+  color: var(--color-black);
+  border-radius: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-toast {
+    transition: opacity 0.2s ease;
+    transform: translate(-50%, 0);
+  }
+}
+
+/* Cover: equal space between the intro line, headline and availability */
+.hero--tall .hero__eyebrow {
+  margin-bottom: var(--space-3);
+}
+
+.hero--tall .hero__heading {
+  margin-bottom: 0;
+}
+
+.hero--tall .hero__availability {
+  margin-top: var(--space-3);
+}
+
+/* Toast: size to its text (left: 50% would otherwise cap it at half the
+   screen on phones), and a light ring so it reads over the black footer. */
+.copy-toast {
+  width: max-content;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35), 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* ==========================================================================
+   Round 7: Alida's feedback
+   ========================================================================== */
+
+/* Small "Copied" bubble beside the clicked email link (replaces the toast) */
+.copy-bubble {
+  position: absolute;
+  z-index: 100;
+  padding: 0.3rem 0.6rem;
+  background: var(--color-black);
+  color: var(--color-white);
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  white-space: nowrap;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35), 0 4px 12px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(4px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.copy-bubble.is-below {
+  transform: translateY(-4px);
+}
+
+.copy-bubble.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .copy-bubble {
+    transition: opacity 0.15s ease;
+    transform: none;
+  }
+}
+
+/* Centered top navigation: brand left, links centered, icons right */
+@media (min-width: 901px) {
+  .site-header__inner {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+  }
+
+  .site-header .nav {
+    display: contents;
+  }
+
+  .site-header .nav__links {
+    justify-self: center;
+  }
+
+  .site-header .nav__actions {
+    justify-self: end;
+  }
+}
+
+/* Cover: name line, headline, then the "10 years" line, evenly spaced */
+.hero--tall .hero__eyebrow {
+  color: var(--color-black);
+}
+
+.hero--tall .hero__subtext {
+  margin-top: var(--space-3);
+}
+
+/* ==========================================================================
+   Round: card labels and wider reading column
+   ========================================================================== */
+
+/* "7 minute read" next to the Read Article button */
+.list-card .btn-row {
+  align-items: center;
+}
+
+.list-card__meta {
+  font-size: var(--fs-sm, 0.875rem);
+  color: var(--color-text-muted, #5f5a52);
+}
+
+/* Article and resource pages: wider text column (was 40rem) */
+.cs-layout .article-body {
+  max-width: 50rem;
+}
+
+/* Contact CTA removed from articles/resources: give the Next button room */
+.cs-layout .cs-next {
+  margin-top: var(--space-6);
+}
+
+/* Article images ported from Medium: natural proportions, rounded */
+.article-figure__img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  background: var(--color-placeholder);
+}
+
+/* Missing embedded table (original source no longer exists) */
+.article-figure__missing {
+  display: grid;
+  place-items: center;
+  min-height: 9rem;
+  padding: var(--space-3);
+  border: 2px dashed var(--color-line);
+  border-radius: var(--radius-lg);
+  text-align: center;
+  font-size: 0.9375rem;
+}
+
+/* ==========================================================================
+   UX resource pages: permission note, carousel, download box
+   ========================================================================== */
+
+.resource-permission {
+  margin-top: var(--space-2);
+  font-size: 0.875rem;
+  font-style: italic;
+  opacity: 0.75;
+}
+
+.resource-gallery__missing {
+  margin-top: var(--space-1);
+  font-size: 0.875rem;
+  text-align: center;
+}
+
+.carousel {
+  margin-top: var(--space-2);
+}
+
+.carousel__track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  border-radius: var(--radius-lg);
+  background: #fff;
+  border: 1px solid var(--color-line);
+}
+
+.carousel__track::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel__track:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 3px;
+}
+
+.carousel__slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  display: grid;
+  place-items: center;
+  padding: var(--space-4);
+  min-height: 22rem;
+}
+
+.carousel__slide img {
+  max-width: 100%;
+  max-height: 34rem;
+  width: auto;
+  height: auto;
+}
+
+.carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.carousel__btn {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 50%;
+  border: 1px solid var(--color-ink, #111);
+  background: var(--color-ink, #111);
+  color: #fff;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+.carousel__btn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.carousel__count {
+  min-width: 3.5rem;
+  text-align: center;
+  font-size: 0.875rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.resource-cta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  margin-top: var(--space-6);
+  padding: var(--space-4);
+  background: var(--color-accent-soft);
+  border-radius: var(--radius-lg);
+}
+
+.cs-layout .resource-cta {
+  margin-top: var(--space-6);
+}
+
+.resource-cta__title {
+  font-size: var(--fs-md);
+}
+
+.resource-cta__note {
+  margin-top: 0.35rem;
+  font-size: 0.875rem;
+}
+
+.btn.is-disabled {
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+@media (max-width: 700px) {
+  .carousel__slide {
+    min-height: 14rem;
+    padding: var(--space-2);
+  }
+}
+
+/* Carousel controls sit over the bottom of the carousel */
+.carousel {
+  position: relative;
+}
+
+.carousel__slide {
+  padding-bottom: 5rem; /* room for the controls under each image */
+}
+
+.carousel__controls {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-2);
+  transform: translateX(-50%);
+  margin-top: 0;
+  padding: 0.35rem;
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--color-line);
+  border-radius: 999px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+}
+
+.carousel__btn {
+  width: 2.25rem;
+  height: 2.25rem;
+  font-size: 1rem;
+}
+
+@media (max-width: 700px) {
+  .carousel__slide {
+    padding-bottom: 4.25rem;
+  }
+}
+
+/* Writing and UX Resources cards: text block centred against the image */
+.list-card {
+  align-items: center;
+}
+
+/* Tall poster slides (Tree Structure): show the top of the page, click for full size */
+.carousel__slide--zoom a {
+  position: relative;
+  display: block;
+  max-width: 100%;
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+}
+
+.carousel__slide--zoom img {
+  display: block;
+  width: min(36rem, 100%);
+  max-height: 34rem;
+  object-fit: cover;
+  object-position: top;
+}
+
+.carousel__zoom {
+  position: absolute;
+  top: var(--space-2);
+  right: var(--space-2);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: #fff;
+  background: rgba(17, 17, 17, 0.85);
+  border-radius: 999px;
+}
+
+.carousel__zoom svg {
+  width: 0.8em;
+  height: 0.8em;
+}
+
+.carousel__slide--zoom a:hover .carousel__zoom,
+.carousel__slide--zoom a:focus-visible .carousel__zoom {
+  background: #111;
+}
+
+.carousel__slide--zoom a {
+  width: min(36rem, 100%);
+}
+
+.carousel__slide--zoom img {
+  width: 100%;
+  height: 34rem;
+  max-height: none;
+}
+
+.carousel__zoom {
+  top: auto;
+  bottom: var(--space-2);
+}
+
+@media (max-width: 700px) {
+  .carousel__slide--zoom img {
+    height: 24rem;
+  }
+}
+
+/* TechSoup thumbnail is wide: fit it inside the card image box instead of cropping */
+.list-card__media img[src$="resource-techsoup.avif"] {
+  object-fit: contain;
+  background: #fff;
+}
+
+/* Tree Structure thumbnail: whole diagram inside the frame, with breathing room */
+.list-card__media img[src$="ux-tree-structure.avif"] {
+  object-fit: contain;
+  background: #fff;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+/* Company links: room inside the hover highlight, extra on the right for the arrow.
+   Negative margins keep the logos where they were. */
+a.logo-row__item {
+  padding: 0.2rem 0.75rem 0.2rem 0.35rem;
+  margin: -0.2rem -0.75rem -0.2rem -0.35rem;
+  border-radius: 6px;
+}
+
+/* ==========================================================================
+   Load-in animation on every page except Home (body.page-intro).
+   Same reveal-up motion and 0.12s stagger as the home page's .reveal items:
+   the page heading first, then each block below it in order.
+   ========================================================================== */
+
+.page-intro main > *,
+.page-intro .cs-hero > *,
+.page-intro .list > .list-card,
+.page-intro .resume-top > *,
+.page-intro .resume > * {
+  animation: reveal-up 0.9s cubic-bezier(0.22, 1, 0.36, 1) backwards;
+}
+
+/* Wrappers whose children animate on their own don't animate as a whole */
+.page-intro main > .cs-hero,
+.page-intro main > :has(> .list),
+.page-intro main > :has(> .resume-top) {
+  animation: none;
+}
+
+/* Top-level blocks, in page order */
+.page-intro main > :nth-child(1) { animation-delay: 0.25s; }
+.page-intro main > :nth-child(2) { animation-delay: 0.49s; }
+.page-intro main > :nth-child(3) { animation-delay: 0.61s; }
+.page-intro main > :nth-child(4) { animation-delay: 0.73s; }
+.page-intro main > :nth-child(n + 5) { animation-delay: 0.85s; }
+
+/* Article / resource header: title, summary, note */
+.page-intro .cs-hero > :nth-child(1) { animation-delay: 0.25s; }
+.page-intro .cs-hero > :nth-child(2) { animation-delay: 0.37s; }
+.page-intro .cs-hero > :nth-child(n + 3) { animation-delay: 0.45s; }
+
+/* Writing / UX Resources lists: cards one after another */
+.page-intro .list > .list-card:nth-child(1) { animation-delay: 0.37s; }
+.page-intro .list > .list-card:nth-child(2) { animation-delay: 0.49s; }
+.page-intro .list > .list-card:nth-child(3) { animation-delay: 0.61s; }
+.page-intro .list > .list-card:nth-child(n + 4) { animation-delay: 0.73s; }
+
+/* Resume: header, then the two columns */
+.page-intro .resume-top > :nth-child(1) { animation-delay: 0.25s; }
+.page-intro .resume-top > :nth-child(2) { animation-delay: 0.37s; }
+.page-intro .resume > :nth-child(1) { animation-delay: 0.49s; }
+.page-intro .resume > :nth-child(2) { animation-delay: 0.61s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .page-intro main > *,
+  .page-intro .cs-hero > *,
+  .page-intro .list > .list-card,
+  .page-intro .resume-top > *,
+  .page-intro .resume > * {
+    animation: none;
+  }
+}
+
+/* Resume: short summary above Work Experience */
+.resume-summary {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  margin: 0 0 var(--space-6);
+}

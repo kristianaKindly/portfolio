@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Everything You Need to Know About 2FA | Alida Horsley</title>
+  <meta name="description" content="A straightforward guide to everything 2FA. From how it works, to why it matters, and even how it can be hacked.">
+  <meta name="author" content="Alida Horsley">
+  <link rel="canonical" href="https://alida-design.ca/writing/2fa/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#f3f1ec">
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="Alida Horsley">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:title" content="Everything You Need to Know About 2FA">
+  <meta property="og:description" content="A straightforward guide to everything 2FA. From how it works, to why it matters, and even how it can be hacked.">
+  <meta property="og:url" content="https://alida-design.ca/writing/2fa/">
+  <meta property="og:image" content="https://alida-design.ca/assets/og/2fa.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Everything You Need to Know About 2FA">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Everything You Need to Know About 2FA">
+  <meta name="twitter:description" content="A straightforward guide to everything 2FA. From how it works, to why it matters, and even how it can be hacked.">
+  <meta name="twitter:image" content="https://alida-design.ca/assets/og/2fa.jpg">
+  <meta name="twitter:image:alt" content="Everything You Need to Know About 2FA">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Article","headline":"Everything You Need to Know About 2FA","description":"A straightforward guide to everything 2FA. From how it works, to why it matters, and even how it can be hacked.","image":"https://alida-design.ca/assets/og/2fa.jpg","author":{"@type":"Person","name":"Alida Horsley","jobTitle":"UX Designer","url":"https://alida-design.ca/","sameAs":["https://www.linkedin.com/in/alida-horsley/"]},"url":"https://alida-design.ca/writing/2fa/"}</script>
+  <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/v2.css">
+  <script src="/js/copy-email.js" defer></script>
+</head>
+<body class="page-intro">
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="site-header__brand" href="/">Alida Horsley</a>
+
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="nav" id="primary-nav">
+        <ul class="nav__links">
+          <li><a href="/about/">About Me</a></li>
+          <li><a href="/writing/">Writing</a></li>
+          <li><a href="/ux-resources/">UX Resources</a></li>
+          <li><a href="/resume/">Resume</a></li>
+        </ul>
+        <div class="nav__actions">
+          <a class="social-icon" href="https://www.linkedin.com/in/alida-horsley/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
+          <a class="social-icon" href="mailto:alidahorsley@gmail.com" aria-label="Email">
+            <img src="/assets/images/icons/mail.svg" alt="" width="16" height="16">
+          </a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="cs-hero container">
+      <h1 class="cs-hero__title">Everything You Need to Know About 2FA</h1>
+      <p class="cs-hero__summary">A straightforward guide to everything 2FA. From how it works, to why it matters, and even how it can be hacked.</p>
+    </section>
+
+    <div class="container full-bleed">
+      <img src="/assets/images/article-2fa.avif" alt="">
+    </div>
+
+    <div class="container cs-layout">
+      <aside class="cs-nav" aria-label="On this page" data-auto>
+        <span class="eyebrow">On this page</span>
+        <ol></ol>
+      </aside>
+
+      <div>
+        <div class="article-body prose">
+        <p>More and more companies are taking the step towards making 2FA mandatory, including Google, GitHub, and Salesforce. 2FA is going to become an ever larger part of our lives.</p>
+        <p>The majority of explainers on 2FA are written by the people with the highest technology proficiency, and aren’t readable for the majority of people who deal with 2FA on a day-to-day basis.</p>
+        <blockquote>My goal is to help you actually understand 2FA and make informed decisions about your online security. Let’s get started!</blockquote>
+        <h2 id="what-s-the-history-of-2fa">What’s the history of 2FA?</h2>
+        <p>The history of 2FA is fuzzy. Most people say the original concept of 2FA was created back in 1967 at Barclays Bank in England when they developed the original ATM (then known as the Automated Teller Machine). For security purposes, Barclays created a short number code (or PIN) that a person entered into the ATM in order to receive money.</p>
+        <p>Over the decades, we’ve seen numerous high-security institutions like the government use different versions of generated number codes in order to add extra security to their login credentials. But it wasn’t until January 2010 that the 2FA system we know today started to become a feature available to the public.</p>
+        <p>In 2011, Google was the first business to introduce 2FA for their MyBusiness accounts. Google needed to take action because they had noticed a drastic increase in account hacking. For several years, Google was the only company offering 2FA security, but between 2011 and 2016 numerous other industry leaders like Apple, Twitter, and Dropbox followed suit.</p>
+        <p>You may have noticed an uptick in companies forcing users to use 2FA in the last decade. Much of that is thanks to the Covid-19 pandemic. Lockdown led to a major switch to remote work, changing the ways people use their computers, leading to a rise in phishing schemes and hacking attempts.</p>
+        <p>Suddenly 2FA became a bigger part of people’s lives.</p>
+        <h2 id="what-s-phishing">What’s phishing?</h2>
+        <p>It’s the practice of hackers sending emails or messages on other applications, pretending to represent reputable companies in order to trick individuals into giving them access to their accounts. Hackers gain access to people’s accounts by getting them to reveal personal information, such as passwords, 2FA codes, and credit card numbers.</p>
+        <h2 id="what-is-2fa-how-does-it-work">What is 2FA? How does it work?</h2>
+        <p>2FA (Two-Factor Authentication), a type of MFA (Multi-Factor Authentication), is an extra layer of security that goes beyond using your username and password to log into your accounts. A website sends you a code (usually via text) when you log into your account, and you must enter the code to fully log in and access the website. Even if someone nefarious has your username and password, they shouldn’t be able to access the code texted to your phone, keeping your account safe.</p>
+        <p>2FA is just one way to verify your identity. Cybersecurity professionals actually have 3 different methods to help you prove your identity when logging into a program. They may ask you for:</p>
+        <ul>
+          <li><strong>Something you know</strong>: For example, your username and password. But let’s be honest, there’s a reason why businesses are moving away from relying on the traditional username and password method: people often write down or reuse passwords, which can make your information and the business’ system vulnerable.</li>
+          <li><strong>Something you have</strong>: For example, the 2FA code texted to your cellphone. This requires you to have a separate, physical device (your cellphone) in order to authenticate your identity.</li>
+          <li><strong>Something you are</strong>: For example, scanning your fingerprint or listening to your voice. This is known as biometric validation; it allows you to validate your identity via specific biological markers.</li>
+        </ul>
+        <p>One thing to keep in mind: the codes you get on your phone don’t last forever. They can expire anytime between 30 seconds and 10 minutes, depending on the business.</p>
+        <h2 id="why-is-2fa-important-for-security">Why is 2FA important for security?</h2>
+        <p>Let’s face it, making and keeping track of passwords is a hassle. According to studies by NordPass and Dashlane, the average person has between 70 and 100 different accounts. It’s easy for people to fall into the trap of using the same weak passwords across multiple accounts, which is a recipe for disaster. Hackers can easily crack weak passwords and can learn everything they need to know about you across different accounts.</p>
+        <p>That’s where 2FA comes in. It adds an extra layer of protection: even if a hacker got hold of your password, they would need your phone to get into your account.</p>
+        <p>If you’re struggling to manage all your passwords, a password manager is the way to go. Password managers allow you to store all your passwords securely and can generate strong, unique passwords. It helps you go from memorizing dozens of passwords to just one!</p>
+        <p>It’s not just individual people who are vulnerable to cyberattacks; 2FA is essential because businesses are at high risk as well. Staff who have access to critical infrastructure can be at even higher risk for phishing and scams. A study by the Identity Theft Resource Center showed that in 2022 there were 1,802 data breaches, impacting at least 422 million people and exposing critical information like passwords and Social Security numbers.</p>
+        <p>Again, even if a hacker was able to steal your password from a business, if you have 2FA enabled on your accounts, your information would be safe. However, it’s still important that you immediately change your password if you hear of a data breach involving a company you have an account with.</p>
+        <h2 id="what-s-the-difference-between-2fa-and-mfa">What’s the difference between 2FA and MFA?</h2>
+        <p>2FA is a type of MFA. 2FA is a method of authenticating your identity using two factors, for example, your password (something you know) and a text message code (something you have). MFA refers to any identity authentication method that uses two <em>or more</em> pieces of evidence to confirm your identity; for example, you might be asked to provide a fingerprint (something you are) along with a password and SMS text message code.</p>
+        <p>It’s worth noting that there are lots of different types of MFA and 2FA out there. But when you hear businesses talking about 2FA, they often mean the text message–based method.</p>
+        <h2 id="what-are-the-different-types-of-2fa">What are the different types of 2FA?</h2>
+        <h3>SMS &amp; Voice 2FA</h3>
+        <p>This is the type of 2FA you’re likely most familiar with. You give a company your phone number, and when you log in, you get sent a text message or automated phone call. It’s popular because it only requires your cellphone, something people are likely to have on them at all times. However, some people don’t like giving out their phone number to every single company, and it can be tricky to navigate 2FA if you’re travelling internationally.</p>
+        <h3>Push Notifications</h3>
+        <p>When you log in, a prompt is sent to your phone asking you to approve or deny the login attempt. Many prompts also show where the attempt is coming from (based on its IP address), so you can check that it’s really you. The one downside of this method is that you need data or an internet connection to approve.</p>
+        <h3>Email</h3>
+        <p>You’re sent an email when you log in, and you copy a code or click a button to finalize the login. It’s highly intuitive since you’re likely already working on your computer, but this method is considered the least secure because it’s only re-verifying your password, and not truly asking for another layer of identification.</p>
+        <h3>Authenticator Apps, Software Token, &amp; TOTP 2FA</h3>
+        <p>These methods require you to install an application onto your phone and/or computer. When you set it up, you scan a QR code on the website you’re logging into; from then on, the app generates a new number-based code that you enter whenever you log in. The pros are that you don’t need to have access to the internet to use Authenticators, and because the codes are created on your device, there’s no text message for hackers to intercept. The downsides are that it can be an inconvenient process if you have to log in again and again, and many websites don’t support Authenticators.</p>
+        <h3>Hardware Tokens</h3>
+        <p>When you log in, you plug a USB device into your computer, and the USB passes a code along to the program you’re logging into. The downside is that they can be expensive for businesses to maintain, and it’s easy to lose something small like a USB key.</p>
+        <h3>Biometrics</h3>
+        <p>This method uses a sensor to scan your face, fingerprint, retina, or voice as proof of your identity. This method is considered extremely secure; however, there are concerns about privacy when companies save biometric data, about the expense to implement, and about how it can be exclusionary to people with physical disabilities.</p>
+        <h2 id="is-it-safe-to-share-my-2fa-codes">Is it safe to share my 2FA codes?</h2>
+        <p>It’s safe — as long as you’re sharing them with trusted parties and you share them safely. Whether you share an account with your team or your partner, it’s good to take some precautions to make sure your account and your information stay secure:</p>
+        <ul>
+          <li>Ask your team to double- and triple-check they’re sending the codes to the right person, email address, or phone number.</li>
+          <li>Ask your team to lock their phones with a secure code or pattern and ask that text messages not appear on the lock screen. That way, if someone stole a phone, it would be much more difficult to get access to your accounts.</li>
+          <li>Teach your team how to spot potential threats like phishing emails.</li>
+          <li>If you want to be extra secure, provide your team members with a work phone that never leaves the office — that way, you can be sure the codes are going to the right place.</li>
+        </ul>
+        <h2 id="what-are-the-consequences-of-someone-stealing-my">What are the consequences of someone stealing my information?</h2>
+        <p>For businesses or individuals, it can mean a lot of trouble.</p>
+        <p>A data breach from a business can seriously damage a company’s reputation and financial standing. Losing user data can result in lost business, diminished trust from customers, and costly legal action.</p>
+        <p>The consequences for individuals can be even more dire. If someone gets their hands on your personal information, they can use it to commit fraud and wreak havoc on your life. The worst-case scenarios involve ruined credit, legal troubles, and generally feeling helpless against a faceless hacker.</p>
+        <p>It’s hard to think about, but there are numerous steps you can take to protect yourself.</p>
+        <h2 id="can-2fa-be-hacked">Can 2FA be hacked?</h2>
+        <p>While it’s rare, there have been cases where hackers have outsmarted 2FA. I’ve listed some of the most common 2FA hacking methods below, along with ways to keep yourself safe from these kinds of attacks.</p>
+        <h3>Social Engineering</h3>
+        <p>This is where a hacker tricks a person into giving up their important login information, like passwords, usernames, and 2FA codes. Most often, hackers pretend to be a customer service representative. Please remember, you should never need to give a customer service agent any login information.</p>
+        <h3>Identity Theft</h3>
+        <p>A hacker can gather enough information about you to call up customer service and pretend to be you, gaining access to your account. I hope that companies’ customer service departments are aware enough to prevent this from happening, but to be on the safe side, make sure that your security questions have answers that nobody could easily guess or find out about you.</p>
+        <h3>OAuth (Open Authorization)</h3>
+        <p>Occasionally applications may ask for permission to access your account; a common example is applications asking to access your Facebook account in order to post on your behalf. It’s best to rarely give applications access to your other accounts, and if you do, make sure the application is trustworthy and check that you aren’t giving them total access to your account.</p>
+        <h3>Proxy Attacks</h3>
+        <p>A hacker may try to trick you into giving up your login credentials and 2FA code by leading you to a fake website that looks exactly like the real one. One common way they do this is by sending you a legitimate-looking email with a link that takes you to a phony website. So, before you click on any links inside an email, make sure to double-check that the email and website addresses are the real deal. If you’re not sure, do a quick search to find the right email and web address.</p>
+        <h3>SIM Swapping</h3>
+        <p>A hacker can assign your phone number to a phone that they control, often by tricking telecom customer service staff into rerouting your phone number to a different phone. This is known as SIM swapping, and it lets the hacker receive your text message codes. You can protect your phone number by asking your phone carrier to set up extra security, often by adding a PIN to your account.</p>
+        <h3>Supply Chain Attacks</h3>
+        <p>Hackers can even attack the software that creates and distributes 2FA codes for businesses, helping them get into your account. Once they’re in your account, they try to intercept future 2FA codes by registering a secondary phone to your account. Unfortunately, these kinds of attacks can be hard for you to prevent, but one way to protect yourself is to keep an eye out for any unexpected emails about changes to your account. If you see something fishy, don’t hesitate to investigate further or reach out to the company for help.</p>
+        <h3>“Pass-the-Cookie” Attacks</h3>
+        <p>Some browsers store authentication details in cookies. Cookies are traditionally used to save information about your browsing session to make your experience smoother; in this case, after you’ve entered your 2FA code, your browser stores a session token so you don’t have to log into a website again and again. Unfortunately, if your authentication details are stored improperly, hackers can extract that data and take over your account. Again, you’re relying on businesses’ security measures to prevent this kind of attack from happening, but one way to protect yourself is by consistently clearing your browser cookies.</p>
+        <h2 id="what-should-i-do-if-i-lose-my-2fa-device">What should I do if I lose my 2FA device?</h2>
+        <p>Don’t panic! There are a few steps you can take to protect your accounts and information if you’ve lost your phone.</p>
+        <h3>1. Try to locate your device</h3>
+        <p>Give your phone a call, use your phone carrier’s mobile app to send an alert, or use a built-in find-my-phone feature. Maybe some kind person has found it and will return it to you.</p>
+        <h3>2. Remotely erase your data &amp; lock your device</h3>
+        <p>Both Apple and Android phones have features that allow you to erase your phone’s data and lock your device remotely. This is especially important if you suspect your device has been stolen.</p>
+        <h3>3. Contact your mobile carrier</h3>
+        <p>In order to prevent anyone from accessing your 2FA codes, call your phone carrier to disable service to your phone. This may also prevent the thief from selling your stolen phone.</p>
+        <h3>4. Get a new phone</h3>
+        <p>Your carrier should be able to transfer your phone number to a new phone. Once you have a phone, you’ll be able to receive 2FA codes again.</p>
+        <h3>5. Update your account information</h3>
+        <p>If you lost your phone number, you’ll need to update your number on all of your accounts. This will require additional validation via email, voice authentication, ID upload, or backup codes.</p>
+        <h3>6. Change your passwords</h3>
+        <p>It’s a good idea to change passwords for any accounts your phone was logged into. This will prevent anyone from accessing your account, even if they have access to your 2FA code.</p>
+        <h2 id="should-i-use-2fa-on-all-my-accounts">Should I use 2FA on all my accounts?</h2>
+        <p>While 2FA may be less convenient than using your username and password, it’s highly recommended that you use 2FA wherever possible. It’s especially important to use 2FA on any accounts that hold sensitive information, such as:</p>
+        <ul>
+          <li><strong>Identification:</strong> Social Security numbers, home address, phone number, birth dates.</li>
+          <li><strong>Financial:</strong> Credit card numbers, bank account information, investment information.</li>
+          <li><strong>Health:</strong> Details regarding health conditions and medical records.</li>
+          <li><strong>Intellectual Property:</strong> Product information, such as manuals, specifications, formulas.</li>
+          <li><strong>Competitive Documents:</strong> Market studies, pricing information, business plans.</li>
+          <li><strong>Legal:</strong> Documentation regarding cases, legal options.</li>
+          <li><strong>IT Security Data:</strong> Lists of usernames, passwords, encryption information.</li>
+        </ul>
+        <h2 id="are-there-alternatives-to-2fa">Are there alternatives to 2FA?</h2>
+        <p>If a service requires you to use 2FA, there really aren’t any alternatives. Some people find Authenticator Apps easier to use, as you don’t have to wait to receive a code.</p>
+        <h2 id="is-sms-text-based-2fa-the-safest-identity-authen">Is SMS text-based 2FA the safest identity authentication method?</h2>
+        <p>The safest authentication method is the method that people will actually use. While other authentication methods may technically be safer, they can also be more frustrating or expensive to implement. Both individuals and businesses need to find a balance between developing a safe and easy-to-use method.</p>
+        <p>Consider how many times you log into your accounts every day. If the authentication process is long and frustrating, people are more likely to try to work around your security solution. That’s why it’s important to strike a balance between security and usability.</p>
+        <h2 id="sources">Sources</h2>
+        <ul class="article-citations">
+          <li><strong>Cover image</strong>: <a href="https://unsplash.com/@maxberg" target="_blank" rel="noopener">Max Berg on Unsplash</a></li>
+          <li><a href="https://www.newamerica.org/in-depth/getting-internet-companies-do-right-thing/case-study-2-offering-two-factor-authentication/" target="_blank" rel="noopener">New America: Case Study 2, Offering Two-Factor Authentication</a></li>
+          <li><a href="https://brainstation.io/cybersecurity/two-factor-auth" target="_blank" rel="noopener">BrainStation: Two Factor Auth</a></li>
+          <li><a href="https://en.wikipedia.org/wiki/Multi-factor_authentication" target="_blank" rel="noopener">Wikipedia: Multi-factor authentication</a></li>
+          <li><a href="https://www.cs.cornell.edu/courses/cs513/2005fa/NNLauthPeople.html" target="_blank" rel="noopener">Cornell University, CS 513: Something You Know, Have, or Are</a></li>
+          <li><a href="https://www.verizon.com/business/resources/reports/dbir/2022/master-guide/" target="_blank" rel="noopener">Verizon: 2022 Data Breach Investigations Report</a></li>
+          <li><a href="https://www.idtheftcenter.org/post/2022-annual-data-breach-report-reveals-near-record-number-compromises/" target="_blank" rel="noopener">Identity Theft Resource Center: 2022 Annual Data Breach Report</a></li>
+          <li><a href="https://www.kaspersky.com/resource-center/definitions/data-breach" target="_blank" rel="noopener">Kaspersky: What is a Data Breach</a></li>
+          <li><a href="https://www.cloudmask.com/blog/data-breaches-threats-and-consequences" target="_blank" rel="noopener">CloudMask: Data Breaches, Threats and Consequences</a></li>
+          <li><a href="https://www.asurion.com/connect/tech-tips/what-to-do-when-your-phone-is-lost-or-stolen/" target="_blank" rel="noopener">Asurion: What you need to do if your phone is lost or stolen</a></li>
+          <li><a href="https://www.csoonline.com/article/3620223/how-to-hack-2fa.html" target="_blank" rel="noopener">CSO Online: How MFA gets hacked</a></li>
+          <li><a href="https://securuscomms.co.uk/how-hackers-bypass-two-factor-authentication/" target="_blank" rel="noopener">Securus: How hackers bypass two-factor authentication</a></li>
+          <li><a href="https://rublon.com/blog/mfa-2fa-difference/" target="_blank" rel="noopener">Rublon: What’s the Difference Between MFA and 2FA?</a></li>
+          <li><a href="https://techcrunch.com/2018/12/25/cybersecurity-101-guide-protect-phone-number/" target="_blank" rel="noopener">TechCrunch: SIM swapping attacks expose your online accounts to hackers</a></li>
+        </ul>
+</div>
+
+        <div class="cs-next">
+          <a class="btn btn--dark" href="/writing/aimless-engagement/"><span style="margin-right:0.4em">Next Article:</span><span style="font-weight:400">Breaking away from aimless engagement</span></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer footer-v2">
+    <div class="container">
+      <div class="footer-v2__top">
+        <div class="footer-v2__intro">
+          <h2 class="footer-v2__title">Let&rsquo;s connect</h2>
+          <p class="footer-v2__text">Whether you have a complex system to untangle or want to talk shop, I&rsquo;m open for a chat.</p>
+          <p class="footer-v2__note"><span class="footer-v2__dot" aria-hidden="true"></span>Open to UX roles and select contracts</p>
+        </div>
+        <div class="footer-v2__actions">
+          <a class="btn btn--accent" href="mailto:alidahorsley@gmail.com">Start a Conversation<svg class="btn__icon btn__icon--right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/alida-horsley/" target="_blank" rel="noopener">Connect on LinkedIn<svg class="btn__icon btn__icon--right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a class="btn btn--ghost" href="/resume/">View Resume<svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-v2__bottom">
+        <a class="footer-v2__brand" href="/">Alida Horsley</a>
+        <nav aria-label="Footer">
+          <ul class="footer-v2__links">
+            <li><a href="/about/">About Me</a></li>
+            <li><a href="/writing/">Writing</a></li>
+            <li><a href="/ux-resources/">UX Resources</a></li>
+            <li><a href="/resume/">Resume</a></li>
+            <li><a href="mailto:alidahorsley@gmail.com">Email</a></li>
+          </ul>
+        </nav>
+        <p class="footer-v2__copy">&copy; 2026 Alida Horsley</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="/js/nav.js" defer></script>
+  <script src="/js/case-study.js" defer></script>
+</body>
+</html>

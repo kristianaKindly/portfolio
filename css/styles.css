@@ -8,6 +8,7 @@
   --color-white: #ffffff;
   --color-bg: #f3f1ec;
   --color-accent: #f5a800;
+  --color-accent-soft: #fde2a7;
   --color-placeholder: #d9d9d9;
 
   /* Type */
@@ -40,7 +41,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+  src: url("/assets/fonts/inter-latin.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: swap;
@@ -48,7 +49,7 @@
 
 @font-face {
   font-family: "Inter";
-  src: url("../assets/fonts/inter-latin.woff2") format("woff2");
+  src: url("/assets/fonts/inter-latin.woff2") format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap;
@@ -528,6 +529,17 @@ button {
   border-color: var(--color-accent);
 }
 
+.btn--accent {
+  background: var(--color-accent);
+  color: var(--color-black);
+  border-color: var(--color-accent);
+}
+
+.btn--accent:hover {
+  background: var(--color-white);
+  border-color: var(--color-white);
+}
+
 /* ==========================================================================
    Component: Card (shared by UX Resource cards and Writing/article cards)
    ========================================================================== */
@@ -593,7 +605,7 @@ button {
 
 .contact-item {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1.25rem;
 }
 
@@ -606,6 +618,15 @@ button {
 .contact-item__title {
   margin-bottom: 0.25rem;
   font-weight: 700;
+}
+
+/* Soft accent behind short labels (home value props, About achievements). */
+.contact-item__highlight,
+.experience-point__title {
+  background: var(--color-accent-soft);
+  padding: 0 0.25em;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
 }
 
 .contact-item__text {
@@ -630,14 +651,21 @@ button {
   gap: var(--space-4);
 }
 
-.site-footer__intro h2 {
+.site-footer__heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-3);
   margin-bottom: var(--space-2);
+}
+
+.site-footer__intro h2 {
   font-size: var(--fs-lg);
   font-weight: 400;
 }
 
 .site-footer__intro p {
-  max-width: 24rem;
+  max-width: 15rem;
 }
 
 .site-footer__links {
@@ -698,7 +726,7 @@ button {
 .experience-list {
   display: flex;
   flex-direction: column;
-  gap: var(--space-4);
+  gap: var(--space-8);
 }
 
 .experience-item {
@@ -709,18 +737,15 @@ button {
 
 .experience-item__header {
   display: flex;
-  align-items: center;
-  flex: 0 0 520px;
+  align-items: flex-start;
+  flex: 0 0 340px;
   gap: var(--space-3);
-  white-space: nowrap;
 }
 
 .experience-item__thumb {
   width: 89px;
   height: 89px;
   flex-shrink: 0;
-  background: var(--color-placeholder);
-  border-radius: var(--radius-sm);
 }
 
 .experience-item__role {
@@ -729,8 +754,68 @@ button {
   font-weight: 700;
 }
 
+.experience-item__role {
+  line-height: 1.25;
+}
+
+.experience-item__duration {
+  font-weight: 700;
+}
+
 .experience-item__text {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.experience-point__title {
+  font-weight: 700;
+}
+
+.experience-point p + p {
+  margin-top: var(--space-1);
+}
+
+/* ==========================================================================
+   Component: Award list (About page)
+   ========================================================================== */
+
+.award-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--space-4);
+}
+
+.award-item {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.award-item__thumb {
+  width: 89px;
+  height: 60px;
+  flex-shrink: 0;
+}
+
+/* Logos sit inside a fixed box without a fill and scale to fit it. */
+.experience-item__thumb img,
+.award-item__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.award-item__title {
+  margin-bottom: 0.25rem;
+  font-size: var(--fs-md);
+}
+
+@media (max-width: 900px) {
+  .award-list {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 900px) {
@@ -740,10 +825,7 @@ button {
   }
 
   .experience-item__header {
-    flex-direction: column;
-    align-items: flex-start;
     flex-basis: auto;
-    white-space: normal;
   }
 }
 

@@ -4,10 +4,33 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>UX Resources | Alida Horsley</title>
-  <meta name="description" content="UX resources and guides by Alida Horsley.">
+  <meta name="description" content="Free UX guides, design documents and talks by Alida Horsley, from tree structures to notification design and feasibility studies.">
+  <meta name="author" content="Alida Horsley">
+  <link rel="canonical" href="https://alida-design.ca/ux-resources/">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="theme-color" content="#f3f1ec">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Alida Horsley">
+  <meta property="og:locale" content="en_CA">
+  <meta property="og:title" content="UX Resources">
+  <meta property="og:description" content="Free UX guides, design documents and talks by Alida Horsley, from tree structures to notification design and feasibility studies.">
+  <meta property="og:url" content="https://alida-design.ca/ux-resources/">
+  <meta property="og:image" content="https://alida-design.ca/assets/og/default.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Portrait of Alida Horsley">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="UX Resources">
+  <meta name="twitter:description" content="Free UX guides, design documents and talks by Alida Horsley, from tree structures to notification design and feasibility studies.">
+  <meta name="twitter:image" content="https://alida-design.ca/assets/og/default.jpg">
+  <meta name="twitter:image:alt" content="Portrait of Alida Horsley">
   <link rel="stylesheet" href="/css/styles.css">
+  <link rel="stylesheet" href="/css/v2.css">
+  <script src="/js/copy-email.js" defer></script>
 </head>
-<body>
+<body class="page-intro">
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="site-header__brand" href="/">Alida Horsley</a>
@@ -20,11 +43,11 @@
         <ul class="nav__links">
           <li><a href="/about/">About Me</a></li>
           <li><a href="/writing/">Writing</a></li>
-          <li><a href="/ux-resources/" aria-current="page">UX Resources</a></li>
+          <li><a href="/ux-resources/">UX Resources</a></li>
           <li><a href="/resume/">Resume</a></li>
         </ul>
         <div class="nav__actions">
-          <a class="social-icon" href="https://www.linkedin.com/in/alida-horsley/" aria-label="LinkedIn">in</a>
+          <a class="social-icon" href="https://www.linkedin.com/in/alida-horsley/" target="_blank" rel="noopener" aria-label="LinkedIn">in</a>
           <a class="social-icon" href="mailto:alidahorsley@gmail.com" aria-label="Email">
             <img src="/assets/images/icons/mail.svg" alt="" width="16" height="16">
           </a>
@@ -35,52 +58,72 @@
 
   <main>
     <h1 class="page-title container reveal">UX Resources</h1>
-
     <section class="section container">
-      <div class="card-grid card-grid--stagger">
-        <a class="card card--resource reveal" href="/ux-resources/">
-          <div class="card__media card__media--placeholder"></div>
-          <div class="card__body">
-            <h3 class="card__title">UI Options for Tree Structures</h3>
-            <p class="card__text">Dolor sit amet, consectetur adipng elit, sed do eiusmod tempor.</p>
+      <div class="list">
+        <article class="list-card" data-type="resources">
+          <div class="list-card__media"><a href="/ux-resources/tree-structure/" tabindex="-1" aria-hidden="true"><img src="/assets/images/ux-tree-structure.avif" alt="Diagram of a tree structure: a container holding items, where items can themselves be containers"></a></div>
+          <div class="list-card__body">
+            
+            <h3 class="list-card__title"><a href="/ux-resources/tree-structure/">Designing the Right Tree Structure</a></h3>
+            <p>A comprehensive guide on designing friction-free tree structures.</p>
+            
+            
+            <div class="btn-row"><a class="btn btn--dark btn--sm" href="/ux-resources/tree-structure/">View Resource<svg class="btn__icon btn__icon--right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
           </div>
-        </a>
-        <a class="card card--resource reveal" href="/ux-resources/">
-          <div class="card__media card__media--placeholder"></div>
-          <div class="card__body">
-            <h3 class="card__title">Alerts: Alarms, Toasts, &amp; Notifications</h3>
-            <p class="card__text">Dolor sit amet, consectetur adipng elit, sed do eiusmod tempor.</p>
+        </article>
+        <article class="list-card" data-type="resources">
+          <div class="list-card__media"><a href="/ux-resources/notification-worksheet/" tabindex="-1" aria-hidden="true"><img src="/assets/images/ux-notification-worksheet.avif" alt="Notification design worksheet with fields for notification type, formula and trigger frequency"></a></div>
+          <div class="list-card__body">
+            
+            <h3 class="list-card__title"><a href="/ux-resources/notification-worksheet/">Notification Design Worksheet</a></h3>
+            <p>Design an optimal notification strategy, maximizing user impact while managing development complexity.</p>
+            
+            
+            <div class="btn-row"><a class="btn btn--dark btn--sm" href="/ux-resources/notification-worksheet/">View Resource<svg class="btn__icon btn__icon--right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
           </div>
-        </a>
-        <a class="card card--resource reveal" href="/ux-resources/">
-          <div class="card__media card__media--placeholder"></div>
-          <div class="card__body">
-            <h3 class="card__title">UI Options for Tree Structures</h3>
-            <p class="card__text">Dolor sit amet, consectetur adipng elit, sed do eiusmod tempor.</p>
+        </article>
+        <article class="list-card" data-type="presentations">
+          <div class="list-card__media"><a href="https://digitalnonprofit.ca/2024/10/15/unlocking-project-success-highlights-from-feasibility-studies-101-with-alida-horsley/" target="_blank" rel="noopener" tabindex="-1" aria-hidden="true"><img src="/assets/images/resource-techsoup.avif" alt="TechSoup Connect, Western Canada Chapter"></a></div>
+          <div class="list-card__body">
+            
+            <h3 class="list-card__title"><a href="https://digitalnonprofit.ca/2024/10/15/unlocking-project-success-highlights-from-feasibility-studies-101-with-alida-horsley/" target="_blank" rel="noopener">Feasibility Studies 101: Increasing Project Success With Preliminary Evaluation</a></h3>
+            <p>Discover how early investment in systematic feasibility studies drives efficient, risk-aware product delivery.</p>
+            
+            
+            <div class="btn-row"><a class="btn btn--dark btn--sm" href="https://digitalnonprofit.ca/2024/10/15/unlocking-project-success-highlights-from-feasibility-studies-101-with-alida-horsley/" target="_blank" rel="noopener">View Resource<svg class="btn__icon btn__icon--right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a></div>
           </div>
-        </a>
+        </article>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <div class="container site-footer__inner">
-      <div class="site-footer__intro">
-        <h2>Dolor sit amet</h2>
-        <p>Dolor sit amet, consectetur adipng elit, sed do eiusmod tempor.</p>
+  <footer class="site-footer footer-v2">
+    <div class="container">
+      <div class="footer-v2__top">
+        <div class="footer-v2__intro">
+          <h2 class="footer-v2__title">Let&rsquo;s connect</h2>
+          <p class="footer-v2__text">Whether you have a complex system to untangle or want to talk shop, I&rsquo;m open for a chat.</p>
+          <p class="footer-v2__note"><span class="footer-v2__dot" aria-hidden="true"></span>Open to UX roles and select contracts</p>
+        </div>
+        <div class="footer-v2__actions">
+          <a class="btn btn--accent" href="mailto:alidahorsley@gmail.com">Start a Conversation<svg class="btn__icon btn__icon--right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></a>
+          <a class="btn btn--ghost" href="https://www.linkedin.com/in/alida-horsley/" target="_blank" rel="noopener">Connect on LinkedIn<svg class="btn__icon btn__icon--right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg></a>
+          <a class="btn btn--ghost" href="/resume/">View Resume<svg class="btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a1 1 0 0 0-1 1v16a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V8l-5-5Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></svg></a>
+        </div>
       </div>
-      <nav class="site-footer__links">
-        <ul>
-          <li><a href="/about/">About Me</a></li>
-          <li><a href="/ux-resources/">UX Resources</a></li>
-          <li><a href="/writing/">Writing</a></li>
-        </ul>
-        <ul>
-          <li><a href="/resume/">Resume</a></li>
-          <li><a href="https://www.linkedin.com/in/alida-horsley/">LinkedIn</a></li>
-          <li><a href="mailto:alidahorsley@gmail.com">Email</a></li>
-        </ul>
-      </nav>
+      <div class="footer-v2__bottom">
+        <a class="footer-v2__brand" href="/">Alida Horsley</a>
+        <nav aria-label="Footer">
+          <ul class="footer-v2__links">
+            <li><a href="/about/">About Me</a></li>
+            <li><a href="/writing/">Writing</a></li>
+            <li><a href="/ux-resources/">UX Resources</a></li>
+            <li><a href="/resume/">Resume</a></li>
+            <li><a href="mailto:alidahorsley@gmail.com">Email</a></li>
+          </ul>
+        </nav>
+        <p class="footer-v2__copy">&copy; 2026 Alida Horsley</p>
+      </div>
     </div>
   </footer>
 
